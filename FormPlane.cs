@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsPlanes
 {
-    public partial class Form1 : Form
+    public partial class FormPlane : Form
     {
-        public Form1()
+        public FormPlane()
         {
             InitializeComponent();
+        }
+
+        private void pictureBoxPlanes_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
