@@ -52,7 +52,7 @@
             // 
             this.buttonCreateAirbus.Location = new System.Drawing.Point(12, 12);
             this.buttonCreateAirbus.Name = "buttonCreateAirbus";
-            this.buttonCreateAirbus.Size = new System.Drawing.Size(81, 39);
+            this.buttonCreateAirbus.Size = new System.Drawing.Size(104, 25);
             this.buttonCreateAirbus.TabIndex = 2;
             this.buttonCreateAirbus.Text = "Создать аэробус";
             this.buttonCreateAirbus.UseVisualStyleBackColor = true;
@@ -108,9 +108,9 @@
             // 
             // buttonCreatePlane
             // 
-            this.buttonCreatePlane.Location = new System.Drawing.Point(122, 12);
+            this.buttonCreatePlane.Location = new System.Drawing.Point(12, 43);
             this.buttonCreatePlane.Name = "buttonCreatePlane";
-            this.buttonCreatePlane.Size = new System.Drawing.Size(75, 39);
+            this.buttonCreatePlane.Size = new System.Drawing.Size(104, 25);
             this.buttonCreatePlane.TabIndex = 10;
             this.buttonCreatePlane.Text = "Создать самолет";
             this.buttonCreatePlane.UseVisualStyleBackColor = true;

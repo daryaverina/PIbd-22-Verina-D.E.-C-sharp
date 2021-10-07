@@ -9,8 +9,8 @@ namespace WindowsFormsPlanes
 {
     public class Plane : Vehicle
     {
-        protected readonly int planeWidth = 90;
-        protected readonly int planeHeight = 50;
+        protected readonly int planeWidth = 300;
+        protected readonly int planeHeight = 115;
 
         public Plane(int maxSpeed, float weight, Color mainColor)
         {
@@ -58,7 +58,7 @@ planeHeight)
                     break;
                 //вниз
                 case Direction.Down:
-                    if (_startPosY + step < _pictureHeight - planeWidth)
+                    if (_startPosY + step < _pictureHeight - planeHeight)
                     {
                         _startPosY += step;
                     }
@@ -137,7 +137,14 @@ planeHeight)
             PointF[] curvePoints6 = { point20, point21, point22, point23 };
             g.FillPolygon(brBlack, curvePoints6);
 
-           
+            PointF point12 = new PointF(_startPosX + 75, _startPosY + 75);
+            PointF point13 = new PointF(_startPosX + 120, _startPosY + 75);
+            PointF point14 = new PointF(_startPosX + 75, _startPosY + 25);
+            PointF point15 = new PointF(_startPosX + 60, _startPosY + 25);
+            PointF[] curvePoints4 = { point12, point13, point14, point15 };
+            g.FillPolygon(brBlack, curvePoints4);
+
+
         }
     }
 }
