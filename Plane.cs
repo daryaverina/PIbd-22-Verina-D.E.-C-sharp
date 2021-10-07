@@ -64,7 +64,6 @@ planeHeight)
                     }
                     break;
             }
-
         }
 
         public override void DrawTransport(Graphics g)
@@ -143,8 +142,6 @@ planeHeight)
             PointF point15 = new PointF(_startPosX + 60, _startPosY + 25);
             PointF[] curvePoints4 = { point12, point13, point14, point15 };
             g.FillPolygon(brBlack, curvePoints4);
-
-
         }
     }
 }

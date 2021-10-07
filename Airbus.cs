@@ -21,7 +21,7 @@ bool star, bool secondLevel) :
             Star = star;
             SecondLevel = secondLevel;
         }
-      
+
         public override void DrawTransport(Graphics g)
         {
             Pen pen = new Pen(Color.Black, 3);
@@ -35,7 +35,7 @@ bool star, bool secondLevel) :
 
             // шасси
             base.DrawTransport(g);
-          
+
             if (SecondLevel)
             {
 

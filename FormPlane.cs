@@ -13,7 +13,7 @@ namespace WindowsFormsPlanes
     public partial class FormPlane : Form
     {
         private ITransport plane;
-       // private Airbus airbus;
+        // private Airbus airbus;
         public FormPlane()
         {
             InitializeComponent();
@@ -26,11 +26,6 @@ namespace WindowsFormsPlanes
             plane.DrawTransport(gr);
             pictureBoxPlanes.Image = bmp;
         }
-        /*
-        private void buttonCreate_Click(object sender, EventArgs e)
-        {
-
-        }*/
         private void buttonMove_Click(object sender, EventArgs e)
         {
             //получаем имя кнопки
