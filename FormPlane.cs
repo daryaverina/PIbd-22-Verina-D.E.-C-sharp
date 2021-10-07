@@ -12,7 +12,8 @@ namespace WindowsFormsPlanes
 {
     public partial class FormPlane : Form
     {
-        private Airbus airbus;
+        private ITransport plane;
+       // private Airbus airbus;
         public FormPlane()
         {
             InitializeComponent();
@@ -20,20 +21,16 @@ namespace WindowsFormsPlanes
 
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBoxPlane.Width, pictureBoxPlane.Height);
+            Bitmap bmp = new Bitmap(pictureBoxPlanes.Width, pictureBoxPlanes.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            airbus.DrawTransport(gr);
-            pictureBoxPlane.Image = bmp;
+            plane.DrawTransport(gr);
+            pictureBoxPlanes.Image = bmp;
         }
+        /*
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            Random rnd = new Random();
-            airbus = new Airbus();
-            airbus.Init(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue,
-            Color.Green, true, true);
-            airbus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxPlane.Width, pictureBoxPlane.Height);
-            Draw();
-        }
+
+        }*/
         private void buttonMove_Click(object sender, EventArgs e)
         {
             //получаем имя кнопки
@@ -41,16 +38,16 @@ namespace WindowsFormsPlanes
             switch (name)
             {
                 case "buttonUp":
-                    airbus.MoveTransport(Direction.Up);
+                    plane.MoveTransport(Direction.Up);
                     break;
                 case "buttonDown":
-                    airbus.MoveTransport(Direction.Down);
+                    plane.MoveTransport(Direction.Down);
                     break;
                 case "buttonLeft":
-                    airbus.MoveTransport(Direction.Left);
+                    plane.MoveTransport(Direction.Left);
                     break;
                 case "buttonRight":
-                    airbus.MoveTransport(Direction.Right);
+                    plane.MoveTransport(Direction.Right);
                     break;
             }
             Draw();
@@ -59,6 +56,24 @@ namespace WindowsFormsPlanes
         private void FormPlane_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonCreatePlane_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            plane = new Plane(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue);
+            plane.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxPlanes.Width,
+           pictureBoxPlanes.Height);
+            Draw();
+        }
+        private void buttonCreateAirbus_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            plane = new Airbus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue,
+           Color.Yellow, true, true);
+            plane.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxPlanes.Width,
+          pictureBoxPlanes.Height);
+            Draw();
         }
     }
 }
