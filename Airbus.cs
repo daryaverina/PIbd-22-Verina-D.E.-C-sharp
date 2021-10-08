@@ -21,6 +21,10 @@ bool star, bool secondLevel) :
             Star = star;
             SecondLevel = secondLevel;
         }
+        public override void MoveTransport(Direction direction)
+        {
+            base.MoveTransport(direction);
+        }
 
         public override void DrawTransport(Graphics g)
         {
