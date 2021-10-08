@@ -19,11 +19,18 @@ namespace WindowsFormsPlanes
             InitializeComponent();
         }
 
+        public void SetPlane(ITransport car)
+        {
+            this.plane = plane;
+            Draw();
+        }
+
+
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxPlanes.Width, pictureBoxPlanes.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            plane.DrawTransport(gr);
+            plane?.DrawTransport(gr);
             pictureBoxPlanes.Image = bmp;
         }
         private void buttonMove_Click(object sender, EventArgs e)
