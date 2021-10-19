@@ -17,10 +17,10 @@ namespace WindowsFormsPlanes
         /// Размер парковочного места (ширина)
 
         // private readonly int _placeSizeWidth = 350;
-        private readonly int _placeSizeWidth = 300;
+        private readonly int _placeSizeWidth = 340;
         /// Размер парковочного места (высота)
        // private readonly int _placeSizeHeight = 165;
-        private readonly int _placeSizeHeight = 115;
+        private readonly int _placeSizeHeight = 120;
 
         public Parking(int picWidth, int picHeight)
         {
@@ -31,14 +31,10 @@ namespace WindowsFormsPlanes
             pictureHeight = picHeight;
         }
 
-        public static int operator +(Parking<T> p, T plane)
+        public static bool operator +(Parking<T> p, T plane)
         {
-            //for(int i=0;i< p.pictureWidth; i+=p._placeSizeWidth)
-            //Pen pen = new Pen(Color.Black, 3);
-          //  Plane plane = new Plane(100,100,Color.Blue);
-            //plane.SetPosition(500, 10, 300, 115);
             int i = 0;
-            while (i < p.pictureHeight / p._placeSizeHeight - 1)
+            while (i < p.pictureHeight / p._placeSizeHeight )
             {
                 int j = 0;
                 while (j < p.pictureWidth / p._placeSizeWidth)
@@ -46,37 +42,29 @@ namespace WindowsFormsPlanes
                     if (p._places[i * (p.pictureWidth / p._placeSizeWidth) + j] == null)
                     {
                         p._places[i * (p.pictureWidth / p._placeSizeWidth) + j] = plane;
-                        plane.SetPosition(p._placeSizeWidth * j + 6, p._placeSizeHeight * i + 8, p.pictureWidth, p.pictureHeight);
-                        return (i * (p.pictureWidth / p._placeSizeWidth) + j);
+                        plane.SetPosition(p._placeSizeWidth * j+5 , p._placeSizeHeight * i +5, p.pictureWidth, p.pictureHeight);
+                        return true;
                     }
                     j++;
                 }
                 i++;
             }
-            return -1;
-            // plane.DrawTransport();
-            /*  for (int i = 0; i < pictureWidth / _placeSizeWidth; i++)
-              {
-                  for (int j = 0; j < pictureHeight / _placeSizeHeight + 1; ++j)
-                  {//линия рамзетки места
-                      g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight, i *
-                     _placeSizeWidth + _placeSizeWidth / 2, j * _placeSizeHeight);
-                  }
-                  g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth,
-                 (pictureHeight / _placeSizeHeight) * _placeSizeHeight);
-              }*/
-
-           // return -1;
-            // Прописать логику для сложения
+            return  false;
         }
 
         public static T operator -(Parking<T> p, int index)
         {
-
-
-
-            // Прописать логику для вычитания
-            return null;
+            if ((index > p._places.Length)||(index==0)) return null;
+            else
+            {
+                if (p._places[index-1] == null) return null;
+                else
+                {
+                    T temp = p._places[index-1];
+                    p._places[index-1] = null;
+                    return temp;
+                }
+            }
         }
 
 
@@ -96,7 +84,7 @@ namespace WindowsFormsPlanes
                 for (int j = 0; j < pictureHeight / _placeSizeHeight + 1; ++j)
                 {//линия рамзетки места
                     g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight, i *
-                   _placeSizeWidth + _placeSizeWidth / 2, j * _placeSizeHeight);
+                   _placeSizeWidth + _placeSizeWidth -20, j * _placeSizeHeight);
                 }
                 g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth,
                (pictureHeight / _placeSizeHeight) * _placeSizeHeight);

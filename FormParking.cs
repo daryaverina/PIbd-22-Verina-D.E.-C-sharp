@@ -36,7 +36,7 @@ namespace WindowsFormsPlanes
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 var plane = new Plane(100, 1000, dialog.Color);
-                if (parking + plane>=-1)
+                if (parking + plane)
                 {
                     Draw();
                 }
@@ -58,7 +58,7 @@ namespace WindowsFormsPlanes
                 {
                     var plane = new Airbus(100, 1000, dialog.Color, dialogDop.Color,
                    true, true);
-                    if (parking + plane>-1)
+                    if (parking + plane)
                     {
                         Draw();
                     }
