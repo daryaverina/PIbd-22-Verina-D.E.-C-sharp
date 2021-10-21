@@ -9,7 +9,14 @@ namespace WindowsFormsPlanes
 {
     public class Parking<T> where T : class, ITransport
     {
-        private readonly T[] _places;
+        /// <summary>
+        /// Список объектов, которые храним
+        /// </summary>
+        private readonly List<T> _places;
+        /// <summary>
+        /// Максимальное количество мест на парковке
+        /// </summary>
+        private readonly int _maxCount;
         /// Ширина окна отрисовки
         private readonly int pictureWidth;
         /// Высота окна отрисовки
@@ -26,9 +33,10 @@ namespace WindowsFormsPlanes
         {
             int width = picWidth / _placeSizeWidth;
             int height = picHeight / _placeSizeHeight;
-            _places = new T[width * height];
+            _maxCount = width * height;
             pictureWidth = picWidth;
             pictureHeight = picHeight;
+            _places = new List<T>();
         }
 
         public static bool operator +(Parking<T> p, T plane)
@@ -65,6 +73,7 @@ namespace WindowsFormsPlanes
                     return temp;
                 }
             }
+            return null;
         }
 
 
