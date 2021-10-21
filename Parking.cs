@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-
+// ЭТО БЛИН 4 ЛАБА
 namespace WindowsFormsPlanes
 {
     public class Parking<T> where T : class, ITransport
