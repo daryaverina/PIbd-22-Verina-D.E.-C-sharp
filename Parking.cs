@@ -10,6 +10,7 @@ namespace WindowsFormsPlanes
     public class Parking<T> where T : class, ITransport
     {
         private readonly T[] _places;
+
         /// Ширина окна отрисовки
         private readonly int pictureWidth;
         /// Высота окна отрисовки
