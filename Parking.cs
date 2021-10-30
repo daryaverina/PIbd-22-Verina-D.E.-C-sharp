@@ -88,7 +88,6 @@ namespace WindowsFormsPlanes
                 g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth,
                (pictureHeight / _placeSizeHeight) * _placeSizeHeight);
             }
-
         }
     }
 }
