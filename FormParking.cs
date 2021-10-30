@@ -71,16 +71,6 @@ namespace WindowsFormsPlanes
         }
 
 
-        private void label_place_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBoxParking_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonTakePlane_Click(object sender, EventArgs e)
         {
             if (maskedTextBoxTake.Text != "")
