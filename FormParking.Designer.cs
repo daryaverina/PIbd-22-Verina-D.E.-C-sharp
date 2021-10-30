@@ -121,7 +121,6 @@
             this.Controls.Add(this.pictureBoxParking);
             this.Name = "FormParking";
             this.Text = "Стоянка";
-            this.Load += new System.EventHandler(this.FormParking_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
             this.BoxDelete.ResumeLayout(false);
             this.BoxDelete.PerformLayout();

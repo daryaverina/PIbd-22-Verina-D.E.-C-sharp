@@ -97,9 +97,5 @@ namespace WindowsFormsPlanes
 
         }
 
-        private void FormParking_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

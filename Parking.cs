@@ -17,10 +17,8 @@ namespace WindowsFormsPlanes
         private readonly int pictureHeight;
         /// Размер парковочного места (ширина)
 
-        // private readonly int _placeSizeWidth = 350;
         private readonly int _placeSizeWidth = 340;
         /// Размер парковочного места (высота)
-       // private readonly int _placeSizeHeight = 165;
         private readonly int _placeSizeHeight = 120;
 
         public Parking(int picWidth, int picHeight)
