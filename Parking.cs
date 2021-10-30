@@ -33,7 +33,7 @@ namespace WindowsFormsPlanes
         public static bool operator +(Parking<T> p, T plane)
         {
             int i = 0;
-            while (i < p.pictureHeight / p._placeSizeHeight )
+            while (i < p.pictureHeight / p._placeSizeHeight)
             {
                 int j = 0;
                 while (j < p.pictureWidth / p._placeSizeWidth)
@@ -41,26 +41,26 @@ namespace WindowsFormsPlanes
                     if (p._places[i * (p.pictureWidth / p._placeSizeWidth) + j] == null)
                     {
                         p._places[i * (p.pictureWidth / p._placeSizeWidth) + j] = plane;
-                        plane.SetPosition(p._placeSizeWidth * j+5 , p._placeSizeHeight * i +5, p.pictureWidth, p.pictureHeight);
+                        plane.SetPosition(p._placeSizeWidth * j + 5, p._placeSizeHeight * i + 5, p.pictureWidth, p.pictureHeight);
                         return true;
                     }
                     j++;
                 }
                 i++;
             }
-            return  false;
+            return false;
         }
 
         public static T operator -(Parking<T> p, int index)
         {
-            if ((index > p._places.Length)||(index==0)) return null;
+            if ((index > p._places.Length) || (index == 0)) return null;
             else
             {
-                if (p._places[index-1] == null) return null;
+                if (p._places[index - 1] == null) return null;
                 else
                 {
-                    T temp = p._places[index-1];
-                    p._places[index-1] = null;
+                    T temp = p._places[index - 1];
+                    p._places[index - 1] = null;
                     return temp;
                 }
             }
@@ -83,7 +83,7 @@ namespace WindowsFormsPlanes
                 for (int j = 0; j < pictureHeight / _placeSizeHeight + 1; ++j)
                 {//линия рамзетки места
                     g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight, i *
-                   _placeSizeWidth + _placeSizeWidth -20, j * _placeSizeHeight);
+                   _placeSizeWidth + _placeSizeWidth - 20, j * _placeSizeHeight);
                 }
                 g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth,
                (pictureHeight / _placeSizeHeight) * _placeSizeHeight);

@@ -54,8 +54,6 @@ namespace WindowsFormsPlanes
             Draw();
         }
 
-
-
         private void buttonCreatePlane_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
@@ -73,7 +71,5 @@ namespace WindowsFormsPlanes
           pictureBoxPlanes.Height);
             Draw();
         }
-
-      
     }
 }

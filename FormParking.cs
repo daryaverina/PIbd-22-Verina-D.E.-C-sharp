@@ -70,7 +70,6 @@ namespace WindowsFormsPlanes
             }
         }
 
-
         private void buttonTakePlane_Click(object sender, EventArgs e)
         {
             if (maskedTextBoxTake.Text != "")
@@ -84,9 +83,6 @@ namespace WindowsFormsPlanes
                 }
                 Draw();
             }
-
         }
-
-
     }
 }
