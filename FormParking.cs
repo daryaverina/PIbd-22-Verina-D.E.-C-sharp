@@ -145,10 +145,10 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                 Draw();
             }
         }
+
         private void listBoxParkings_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
         }
-
     }
 }
