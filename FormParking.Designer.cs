@@ -46,6 +46,7 @@
             // 
             // pictureBoxParking
             // 
+            this.pictureBoxParking.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBoxParking.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBoxParking.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxParking.Name = "pictureBoxParking";
