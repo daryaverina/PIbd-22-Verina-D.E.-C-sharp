@@ -35,6 +35,11 @@
             this.buttonTakePlane = new System.Windows.Forms.Button();
             this.maskedTextBoxTake = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
+            this.listBoxParkings = new System.Windows.Forms.ListBox();
+            this.labelParkings = new System.Windows.Forms.Label();
+            this.buttonAddParking = new System.Windows.Forms.Button();
+            this.buttonDeleteParking = new System.Windows.Forms.Button();
+            this.textBoxParkingName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.BoxDelete.SuspendLayout();
             this.SuspendLayout();
@@ -50,9 +55,9 @@
             // 
             // buttonParkPlane
             // 
-            this.buttonParkPlane.Location = new System.Drawing.Point(694, 12);
+            this.buttonParkPlane.Location = new System.Drawing.Point(682, 263);
             this.buttonParkPlane.Name = "buttonParkPlane";
-            this.buttonParkPlane.Size = new System.Drawing.Size(94, 38);
+            this.buttonParkPlane.Size = new System.Drawing.Size(117, 38);
             this.buttonParkPlane.TabIndex = 1;
             this.buttonParkPlane.Text = "Припарковать самолет";
             this.buttonParkPlane.UseVisualStyleBackColor = true;
@@ -60,9 +65,9 @@
             // 
             // buttonParkAirbus
             // 
-            this.buttonParkAirbus.Location = new System.Drawing.Point(694, 66);
+            this.buttonParkAirbus.Location = new System.Drawing.Point(682, 307);
             this.buttonParkAirbus.Name = "buttonParkAirbus";
-            this.buttonParkAirbus.Size = new System.Drawing.Size(94, 38);
+            this.buttonParkAirbus.Size = new System.Drawing.Size(117, 38);
             this.buttonParkAirbus.TabIndex = 2;
             this.buttonParkAirbus.Text = "Припарковать аэробус";
             this.buttonParkAirbus.UseVisualStyleBackColor = true;
@@ -73,10 +78,10 @@
             this.BoxDelete.Controls.Add(this.buttonTakePlane);
             this.BoxDelete.Controls.Add(this.maskedTextBoxTake);
             this.BoxDelete.Controls.Add(this.labelPlace);
-            this.BoxDelete.Location = new System.Drawing.Point(686, 119);
+            this.BoxDelete.Location = new System.Drawing.Point(682, 351);
             this.BoxDelete.Name = "BoxDelete";
             this.BoxDelete.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BoxDelete.Size = new System.Drawing.Size(110, 75);
+            this.BoxDelete.Size = new System.Drawing.Size(117, 87);
             this.BoxDelete.TabIndex = 3;
             this.BoxDelete.TabStop = false;
             this.BoxDelete.Text = "Забрать самолет";
@@ -108,11 +113,61 @@
             this.labelPlace.TabIndex = 0;
             this.labelPlace.Text = "Место:";
             // 
+            // listBoxParkings
+            // 
+            this.listBoxParkings.FormattingEnabled = true;
+            this.listBoxParkings.Location = new System.Drawing.Point(682, 80);
+            this.listBoxParkings.Name = "listBoxParkings";
+            this.listBoxParkings.Size = new System.Drawing.Size(117, 95);
+            this.listBoxParkings.TabIndex = 4;
+            this.listBoxParkings.SelectedIndexChanged += new System.EventHandler(this.listBoxParkings_SelectedIndexChanged);
+            // 
+            // labelParkings
+            // 
+            this.labelParkings.AutoSize = true;
+            this.labelParkings.Location = new System.Drawing.Point(715, 9);
+            this.labelParkings.Name = "labelParkings";
+            this.labelParkings.Size = new System.Drawing.Size(60, 13);
+            this.labelParkings.TabIndex = 5;
+            this.labelParkings.Text = "Парковки:";
+            // 
+            // buttonAddParking
+            // 
+            this.buttonAddParking.Location = new System.Drawing.Point(682, 51);
+            this.buttonAddParking.Name = "buttonAddParking";
+            this.buttonAddParking.Size = new System.Drawing.Size(117, 23);
+            this.buttonAddParking.TabIndex = 6;
+            this.buttonAddParking.Text = "Добавить парковку";
+            this.buttonAddParking.UseVisualStyleBackColor = true;
+            this.buttonAddParking.Click += new System.EventHandler(this.buttonAddParking_Click);
+            // 
+            // buttonDeleteParking
+            // 
+            this.buttonDeleteParking.Location = new System.Drawing.Point(682, 181);
+            this.buttonDeleteParking.Name = "buttonDeleteParking";
+            this.buttonDeleteParking.Size = new System.Drawing.Size(117, 23);
+            this.buttonDeleteParking.TabIndex = 7;
+            this.buttonDeleteParking.Text = "Удалить парковку";
+            this.buttonDeleteParking.UseVisualStyleBackColor = true;
+            this.buttonDeleteParking.Click += new System.EventHandler(this.buttonDeleteParking_Click);
+            // 
+            // textBoxParkingName
+            // 
+            this.textBoxParkingName.Location = new System.Drawing.Point(682, 25);
+            this.textBoxParkingName.Name = "textBoxParkingName";
+            this.textBoxParkingName.Size = new System.Drawing.Size(117, 20);
+            this.textBoxParkingName.TabIndex = 8;
+            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBoxParkingName);
+            this.Controls.Add(this.buttonDeleteParking);
+            this.Controls.Add(this.buttonAddParking);
+            this.Controls.Add(this.labelParkings);
+            this.Controls.Add(this.listBoxParkings);
             this.Controls.Add(this.BoxDelete);
             this.Controls.Add(this.buttonParkAirbus);
             this.Controls.Add(this.buttonParkPlane);
@@ -123,6 +178,7 @@
             this.BoxDelete.ResumeLayout(false);
             this.BoxDelete.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -135,5 +191,10 @@
         private System.Windows.Forms.Button buttonTakePlane;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxTake;
         private System.Windows.Forms.Label labelPlace;
+        private System.Windows.Forms.ListBox listBoxParkings;
+        private System.Windows.Forms.Label labelParkings;
+        private System.Windows.Forms.Button buttonAddParking;
+        private System.Windows.Forms.Button buttonDeleteParking;
+        private System.Windows.Forms.TextBox textBoxParkingName;
     }
 }

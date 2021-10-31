@@ -9,7 +9,10 @@ namespace WindowsFormsPlanes
 {
     public class Parking<T> where T : class, ITransport
     {
-        private readonly T[] _places;
+        private readonly List<T> _places;
+
+        /// Максимальное количество мест на парковке
+        private readonly int _maxCount;
 
         /// Ширина окна отрисовки
         private readonly int pictureWidth;
@@ -25,42 +28,33 @@ namespace WindowsFormsPlanes
         {
             int width = picWidth / _placeSizeWidth;
             int height = picHeight / _placeSizeHeight;
-            _places = new T[width * height];
+            _maxCount = width * height;
             pictureWidth = picWidth;
             pictureHeight = picHeight;
+            _places = new List<T>();
+
         }
 
-        public static bool operator +(Parking<T> p, T plane)
+        public static int operator +(Parking<T> p, T plane)
         {
-            int i = 0;
-            while (i < p.pictureHeight / p._placeSizeHeight)
+            if (p._places.Count < p._maxCount)
             {
-                int j = 0;
-                while (j < p.pictureWidth / p._placeSizeWidth)
-                {
-                    if (p._places[i * (p.pictureWidth / p._placeSizeWidth) + j] == null)
-                    {
-                        p._places[i * (p.pictureWidth / p._placeSizeWidth) + j] = plane;
-                        plane.SetPosition(p._placeSizeWidth * j + 5, p._placeSizeHeight * i + 5, p.pictureWidth, p.pictureHeight);
-                        return true;
-                    }
-                    j++;
-                }
-                i++;
+                p._places.Add(plane);
+                return 1;
             }
-            return false;
+            return -1;
         }
 
         public static T operator -(Parking<T> p, int index)
         {
-            if ((index > p._places.Length) || (index == 0)) return null;
+            if (index >= p._places.Count) return null;
             else
             {
-                if (p._places[index - 1] == null) return null;
+                if (p._places[index] == null) return null;
                 else
                 {
-                    T temp = p._places[index - 1];
-                    p._places[index - 1] = null;
+                    T temp = p._places[index];
+                    p._places.RemoveAt(index);
                     return temp;
                 }
             }
@@ -70,8 +64,10 @@ namespace WindowsFormsPlanes
         public void Draw(Graphics g)
         {
             DrawMarking(g);
-            for (int i = 0; i < _places.Length; i++)
+            for (int i = 0; i < _places.Count; i++)
             {
+                _places[i].SetPosition(i % (pictureWidth / _placeSizeWidth) * _placeSizeWidth + 6,
+                    i / (pictureWidth / _placeSizeWidth) * _placeSizeHeight + 8, pictureWidth, pictureHeight);
                 _places[i]?.DrawTransport(g);
             }
         }
