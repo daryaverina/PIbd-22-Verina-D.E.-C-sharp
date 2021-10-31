@@ -131,7 +131,6 @@
             this.Name = "FormPlane";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Аэробус";
-            this.Load += new System.EventHandler(this.FormPlane_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlanes)).EndInit();
             this.ResumeLayout(false);
 

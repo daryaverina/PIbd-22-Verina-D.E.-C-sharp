@@ -13,13 +13,12 @@ namespace WindowsFormsPlanes
     public partial class FormPlane : Form
     {
         private ITransport plane;
-        // private Airbus airbus;
         public FormPlane()
         {
             InitializeComponent();
         }
 
-        public void SetPlane(ITransport car)
+        public void SetPlane(ITransport plane)
         {
             this.plane = plane;
             Draw();
@@ -53,11 +52,6 @@ namespace WindowsFormsPlanes
                     break;
             }
             Draw();
-        }
-
-        private void FormPlane_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonCreatePlane_Click(object sender, EventArgs e)

@@ -47,7 +47,6 @@
             this.pictureBoxParking.Size = new System.Drawing.Size(680, 450);
             this.pictureBoxParking.TabIndex = 0;
             this.pictureBoxParking.TabStop = false;
-            this.pictureBoxParking.Click += new System.EventHandler(this.pictureBoxParking_Click);
             // 
             // buttonParkPlane
             // 
@@ -108,7 +107,6 @@
             this.labelPlace.Size = new System.Drawing.Size(42, 13);
             this.labelPlace.TabIndex = 0;
             this.labelPlace.Text = "Место:";
-            this.labelPlace.Click += new System.EventHandler(this.label_place_Click);
             // 
             // FormParking
             // 
@@ -121,7 +119,6 @@
             this.Controls.Add(this.pictureBoxParking);
             this.Name = "FormParking";
             this.Text = "Стоянка";
-            this.Load += new System.EventHandler(this.FormParking_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
             this.BoxDelete.ResumeLayout(false);
             this.BoxDelete.PerformLayout();
