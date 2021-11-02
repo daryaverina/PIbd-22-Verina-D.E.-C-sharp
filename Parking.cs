@@ -67,7 +67,7 @@ namespace WindowsFormsPlanes
             for (int i = 0; i < _places.Count; i++)
             {
                 _places[i].SetPosition(i % (pictureWidth / _placeSizeWidth) * _placeSizeWidth + 6,
-                    i / (pictureWidth / _placeSizeWidth) * _placeSizeHeight + 8, pictureWidth, pictureHeight);
+                    i / (pictureWidth / _placeSizeWidth) * _placeSizeHeight + 5, pictureWidth, pictureHeight);
                 _places[i]?.DrawTransport(g);
             }
         }
