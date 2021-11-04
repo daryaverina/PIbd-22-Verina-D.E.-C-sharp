@@ -128,9 +128,9 @@
             this.labelParkings.AutoSize = true;
             this.labelParkings.Location = new System.Drawing.Point(715, 9);
             this.labelParkings.Name = "labelParkings";
-            this.labelParkings.Size = new System.Drawing.Size(60, 13);
+            this.labelParkings.Size = new System.Drawing.Size(52, 13);
             this.labelParkings.TabIndex = 5;
-            this.labelParkings.Text = "Парковки:";
+            this.labelParkings.Text = "Стоянки:";
             // 
             // buttonAddParking
             // 
@@ -138,7 +138,7 @@
             this.buttonAddParking.Name = "buttonAddParking";
             this.buttonAddParking.Size = new System.Drawing.Size(117, 23);
             this.buttonAddParking.TabIndex = 6;
-            this.buttonAddParking.Text = "Добавить парковку";
+            this.buttonAddParking.Text = "Добавить стоянку";
             this.buttonAddParking.UseVisualStyleBackColor = true;
             this.buttonAddParking.Click += new System.EventHandler(this.buttonAddParking_Click);
             // 
@@ -148,7 +148,7 @@
             this.buttonDeleteParking.Name = "buttonDeleteParking";
             this.buttonDeleteParking.Size = new System.Drawing.Size(117, 23);
             this.buttonDeleteParking.TabIndex = 7;
-            this.buttonDeleteParking.Text = "Удалить парковку";
+            this.buttonDeleteParking.Text = "Удалить стоянку";
             this.buttonDeleteParking.UseVisualStyleBackColor = true;
             this.buttonDeleteParking.Click += new System.EventHandler(this.buttonDeleteParking_Click);
             // 
