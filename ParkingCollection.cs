@@ -36,7 +36,12 @@ namespace WindowsFormsPlanes
         /// Доступ к парковке
         public Parking<Vehicle> this[string ind]
         {
-            set { parkingStages[ind] = value; }
+            set 
+            {
+                if (!parkingStages.ContainsKey(ind)) 
+                parkingStages[ind] = value; 
+            }
+            
             get
             {
                 if (!parkingStages.ContainsKey(ind)) return null;

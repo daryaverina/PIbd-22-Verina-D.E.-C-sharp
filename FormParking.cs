@@ -26,11 +26,12 @@ pictureBoxParking.Height);
         {
             int index = listBoxParkings.SelectedIndex;
             listBoxParkings.Items.Clear();
-            for (int i = 0; i < parkingCollection.Keys.Count; i++)
-            {
-                listBoxParkings.Items.Add(parkingCollection.Keys[i]);
-            }
-            if (listBoxParkings.Items.Count > 0 && (index == -1 || index >=
+             for (int i = 0; i < parkingCollection.Keys.Count; i++)
+               {
+               listBoxParkings.Items.Add(parkingCollection.Keys[i]);
+             }
+
+                if (listBoxParkings.Items.Count > 0 && (index == -1 || index >=
            listBoxParkings.Items.Count))
             {
                 listBoxParkings.SelectedIndex = 0;
@@ -77,7 +78,7 @@ pictureBoxParking.Height);
         {
             if (listBoxParkings.SelectedIndex > -1)
             {
-                if (MessageBox.Show($"Удалить парковку { listBoxParkings.SelectedItem.ToString()}?", "Удаление", MessageBoxButtons.YesNo,
+                if (MessageBox.Show($"Удалить стоянку { listBoxParkings.SelectedItem.ToString()}?", "Удаление", MessageBoxButtons.YesNo,
 MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     parkingCollection.DelParking(listBoxParkings.SelectedItem.ToString());
@@ -101,7 +102,7 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                     }
                     else
                     {
-                        MessageBox.Show("Парковка переполнена");
+                        MessageBox.Show("Стоянка переполнена");
                     }
                 }
             }
@@ -124,7 +125,7 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                         }
                         else
                         {
-                            MessageBox.Show("Парковка переполнена");
+                            MessageBox.Show("Стоянка переполнена");
                         }
                     }
                 }
@@ -150,5 +151,6 @@ MessageBoxIcon.Question) == DialogResult.Yes)
         {
             Draw();
         }
+
     }
 }
