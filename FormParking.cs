@@ -171,7 +171,7 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                 }
                 else
                 {
-                    MessageBox.Show("Машину не удалось поставить");
+                    MessageBox.Show("Самолет не удалось поставить");
                 }
             }
         }

@@ -59,8 +59,6 @@ namespace WindowsFormsPlanes
                 }
             }
         }
-
-
         public void Draw(Graphics g)
         {
             DrawMarking(g);
