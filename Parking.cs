@@ -13,6 +13,7 @@ namespace WindowsFormsPlanes
 
         /// Максимальное количество мест на парковке
         private readonly int _maxCount;
+        private readonly T[] _places;
 
         /// Ширина окна отрисовки
         private readonly int pictureWidth;
@@ -43,6 +44,23 @@ namespace WindowsFormsPlanes
                 return 1;
             }
             return -1;
+            int i = 0;
+            while (i < p.pictureHeight / p._placeSizeHeight)
+            {
+                int j = 0;
+                while (j < p.pictureWidth / p._placeSizeWidth)
+                {
+                    if (p._places[i * (p.pictureWidth / p._placeSizeWidth) + j] == null)
+                    {
+                        p._places[i * (p.pictureWidth / p._placeSizeWidth) + j] = plane;
+                        plane.SetPosition(p._placeSizeWidth * j + 5, p._placeSizeHeight * i + 5, p.pictureWidth, p.pictureHeight);
+                        return true;
+                    }
+                    j++;
+                }
+                i++;
+            }
+            return false;
         }
 
         public static T operator -(Parking<T> p, int index)
@@ -55,6 +73,14 @@ namespace WindowsFormsPlanes
                 {
                     T temp = p._places[index];
                     p._places.RemoveAt(index);
+            if ((index > p._places.Length) || (index == 0)) return null;
+            else
+            {
+                if (p._places[index - 1] == null) return null;
+                else
+                {
+                    T temp = p._places[index - 1];
+                    p._places[index - 1] = null;
                     return temp;
                 }
             }
