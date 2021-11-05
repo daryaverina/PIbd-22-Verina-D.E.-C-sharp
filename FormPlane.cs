@@ -24,7 +24,6 @@ namespace WindowsFormsPlanes
             Draw();
         }
 
-
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxPlanes.Width, pictureBoxPlanes.Height);

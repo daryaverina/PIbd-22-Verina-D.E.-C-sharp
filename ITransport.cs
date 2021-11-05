@@ -16,5 +16,7 @@ namespace WindowsFormsPlanes
 
         void DrawTransport(Graphics g);
 
+        void SetMainColor(Color color);
+
     }
 }
