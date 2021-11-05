@@ -152,5 +152,28 @@ MessageBoxIcon.Question) == DialogResult.Yes)
             Draw();
         }
 
+        private void buttonAddPlane_Click(object sender, EventArgs e)
+        {
+            if (listBoxParkings.SelectedIndex > -1)
+            {
+                var formLocoConfig = new FormPlaneConfig();
+                formLocoConfig.AddEvent(AddPlane);
+                formLocoConfig.Show();
+            }
+        }
+        private void AddPlane(Vehicle plane)
+        {
+            if (plane != null && listBoxParkings.SelectedIndex > -1)
+            {
+                if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + plane != -1)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Машину не удалось поставить");
+                }
+            }
+        }
     }
 }

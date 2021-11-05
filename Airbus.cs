@@ -12,7 +12,10 @@ namespace WindowsFormsPlanes
         public Color DopColor { private set; get; }
         public bool Star { private set; get; }
         public bool SecondLevel { private set; get; }
-
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+        }
         public Airbus(int maxSpeed, float weight, Color mainColor, Color dopColor,
 bool star, bool secondLevel) :
  base(maxSpeed, weight, mainColor, 300, 115)
@@ -79,8 +82,8 @@ bool star, bool secondLevel) :
 
             if (Star)
             {
-                int x_ = 62;
-                int y_ = 30;
+                int x_ = 72;
+                int y_ = 38;
 
                 PointF point29 = new PointF(_startPosX + x_, _startPosY - 10 + y_);
                 PointF point30 = new PointF(_startPosX + 2 + x_, _startPosY - 3 + y_);

@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.pictureBoxParking = new System.Windows.Forms.PictureBox();
-            this.buttonParkPlane = new System.Windows.Forms.Button();
-            this.buttonParkAirbus = new System.Windows.Forms.Button();
             this.BoxDelete = new System.Windows.Forms.GroupBox();
             this.buttonTakePlane = new System.Windows.Forms.Button();
             this.maskedTextBoxTake = new System.Windows.Forms.MaskedTextBox();
@@ -40,6 +38,7 @@
             this.buttonAddParking = new System.Windows.Forms.Button();
             this.buttonDeleteParking = new System.Windows.Forms.Button();
             this.textBoxParkingName = new System.Windows.Forms.TextBox();
+            this.buttonAddPlane = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.BoxDelete.SuspendLayout();
             this.SuspendLayout();
@@ -53,26 +52,6 @@
             this.pictureBoxParking.Size = new System.Drawing.Size(680, 450);
             this.pictureBoxParking.TabIndex = 0;
             this.pictureBoxParking.TabStop = false;
-            // 
-            // buttonParkPlane
-            // 
-            this.buttonParkPlane.Location = new System.Drawing.Point(682, 263);
-            this.buttonParkPlane.Name = "buttonParkPlane";
-            this.buttonParkPlane.Size = new System.Drawing.Size(117, 38);
-            this.buttonParkPlane.TabIndex = 1;
-            this.buttonParkPlane.Text = "Припарковать самолет";
-            this.buttonParkPlane.UseVisualStyleBackColor = true;
-            this.buttonParkPlane.Click += new System.EventHandler(this.buttonParkPlane_Click);
-            // 
-            // buttonParkAirbus
-            // 
-            this.buttonParkAirbus.Location = new System.Drawing.Point(682, 307);
-            this.buttonParkAirbus.Name = "buttonParkAirbus";
-            this.buttonParkAirbus.Size = new System.Drawing.Size(117, 38);
-            this.buttonParkAirbus.TabIndex = 2;
-            this.buttonParkAirbus.Text = "Припарковать аэробус";
-            this.buttonParkAirbus.UseVisualStyleBackColor = true;
-            this.buttonParkAirbus.Click += new System.EventHandler(this.buttonParkAirbus_Click);
             // 
             // BoxDelete
             // 
@@ -159,19 +138,28 @@
             this.textBoxParkingName.Size = new System.Drawing.Size(117, 20);
             this.textBoxParkingName.TabIndex = 8;
             // 
+            // buttonAddPlane
+            // 
+            this.buttonAddPlane.Location = new System.Drawing.Point(682, 254);
+            this.buttonAddPlane.Name = "buttonAddPlane";
+            this.buttonAddPlane.Size = new System.Drawing.Size(117, 45);
+            this.buttonAddPlane.TabIndex = 10;
+            this.buttonAddPlane.Text = "Добавить самолет";
+            this.buttonAddPlane.UseVisualStyleBackColor = true;
+            this.buttonAddPlane.Click += new System.EventHandler(this.buttonAddPlane_Click);
+            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonAddPlane);
             this.Controls.Add(this.textBoxParkingName);
             this.Controls.Add(this.buttonDeleteParking);
             this.Controls.Add(this.buttonAddParking);
             this.Controls.Add(this.labelParkings);
             this.Controls.Add(this.listBoxParkings);
             this.Controls.Add(this.BoxDelete);
-            this.Controls.Add(this.buttonParkAirbus);
-            this.Controls.Add(this.buttonParkPlane);
             this.Controls.Add(this.pictureBoxParking);
             this.Name = "FormParking";
             this.Text = "Стоянка";
@@ -186,8 +174,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxParking;
-        private System.Windows.Forms.Button buttonParkPlane;
-        private System.Windows.Forms.Button buttonParkAirbus;
         private System.Windows.Forms.GroupBox BoxDelete;
         private System.Windows.Forms.Button buttonTakePlane;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxTake;
@@ -197,5 +183,6 @@
         private System.Windows.Forms.Button buttonAddParking;
         private System.Windows.Forms.Button buttonDeleteParking;
         private System.Windows.Forms.TextBox textBoxParkingName;
+        private System.Windows.Forms.Button buttonAddPlane;
     }
 }
