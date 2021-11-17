@@ -24,6 +24,21 @@ bool star, bool secondLevel) :
             Star = star;
             SecondLevel = secondLevel;
         }
+
+        public Airbus(string info) : base(info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 8)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                Star = Convert.ToBoolean(strs[4]);
+                SecondLevel = Convert.ToBoolean(strs[5]);
+            }
+        }
+
         public override void MoveTransport(Direction direction)
         {
             base.MoveTransport(direction);
@@ -98,6 +113,12 @@ bool star, bool secondLevel) :
                 PointF[] curvePoints10 = { point29, point30, point31, point32, point33, point34, point35, point36, point37, point38, };
                 g.FillPolygon(brLightPurple, curvePoints10);
             }
+        }
+
+        public override string ToString()
+        {
+            return
+           $"{base.ToString()}{separator}{DopColor.Name}{separator}{Star}{separator}{SecondLevel}{separator}";
         }
     }
 }

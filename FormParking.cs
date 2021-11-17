@@ -96,7 +96,7 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     var plane = new Plane(100, 1000, dialog.Color);
-                    if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + plane != -1)
+                    if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + plane )
                     {
                         Draw();
                     }
@@ -119,7 +119,7 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         var plane = new Airbus(100, 1000, dialog.Color, dialogDop.Color,
                    true, true);
-                        if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + plane != -1)
+                        if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + plane )
                         {
                             Draw();
                         }
@@ -165,7 +165,7 @@ MessageBoxIcon.Question) == DialogResult.Yes)
         {
             if (plane != null && listBoxParkings.SelectedIndex > -1)
             {
-                if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + plane != -1)
+                if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + plane)
                 {
                     Draw();
                 }

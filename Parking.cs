@@ -35,14 +35,14 @@ namespace WindowsFormsPlanes
 
         }
 
-        public static int operator +(Parking<T> p, T plane)
+        public static bool operator +(Parking<T> p, T car)
         {
-            if (p._places.Count < p._maxCount)
+            if (p._places.Count >= p._maxCount)
             {
-                p._places.Add(plane);
-                return 1;
+                return false;
             }
-            return -1;
+            p._places.Add(car);
+            return true;
         }
 
         public static T operator -(Parking<T> p, int index)
@@ -82,6 +82,15 @@ namespace WindowsFormsPlanes
                 g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth,
                (pictureHeight / _placeSizeHeight) * _placeSizeHeight);
             }
+        }
+
+        public T GetNext(int index)
+        {
+            if (index < 0 || index >= _places.Count)
+            {
+                return null;
+            }
+            return _places[index];
         }
     }
 }
