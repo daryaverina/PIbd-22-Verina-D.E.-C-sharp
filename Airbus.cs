@@ -28,7 +28,7 @@ bool star, bool secondLevel) :
         public Airbus(string info) : base(info)
         {
             string[] strs = info.Split(separator);
-            if (strs.Length == 8)
+            if (strs.Length == 6)
             {
                 MaxSpeed = Convert.ToInt32(strs[0]);
                 Weight = Convert.ToInt32(strs[1]);
@@ -118,7 +118,7 @@ bool star, bool secondLevel) :
         public override string ToString()
         {
             return
-           $"{base.ToString()}{separator}{DopColor.Name}{separator}{Star}{separator}{SecondLevel}{separator}";
+           $"{base.ToString()}{separator}{DopColor.Name}{separator}{Star}{separator}{SecondLevel}";
         }
     }
 }

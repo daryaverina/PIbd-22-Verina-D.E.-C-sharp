@@ -71,23 +71,23 @@ namespace WindowsFormsPlanes
                     //Начинаем парковку
                     WriteToFile($"Parking{separator}{level.Key}{Environment.NewLine}",
                     fs);
-                    ITransport car = null;
-                    for (int i = 0; (car = level.Value.GetNext(i)) != null; i++)
+                    ITransport plane = null;
+                    for (int i = 0; (plane = level.Value.GetNext(i)) != null; i++)
                     {
-                        if (car != null)
+                        if (plane != null)
                         {
                             //если место не пустое
                             //Записываем тип машины
-                            if (car.GetType().Name == "Car")
+                            if (plane.GetType().Name == "Plane")
                             {
-                                WriteToFile($"Car{separator}", fs);
+                                WriteToFile($"Plane{separator}", fs);
                             }
-                            if (car.GetType().Name == "SportCar")
+                            if (plane.GetType().Name == "Airbus")
                             {
-                                WriteToFile($"SportCar{separator}", fs);
+                                WriteToFile($"Airbus{separator}", fs);
                             }
                             //Записываемые параметры
-                            WriteToFile(car + Environment.NewLine, fs);
+                            WriteToFile(plane + Environment.NewLine, fs);
                         }
                     }
                 }
@@ -140,11 +140,11 @@ namespace WindowsFormsPlanes
                 {
                     continue;
                 }
-                if (strs[i].Split(separator)[0] == "Car")
+                if (strs[i].Split(separator)[0] == "Plane")
                 {
                     car = new Plane(strs[i].Split(separator)[1]);
                 }
-                else if (strs[i].Split(separator)[0] == "SportCar")
+                else if (strs[i].Split(separator)[0] == "Airbus")
                 {
                     car = new Airbus(strs[i].Split(separator)[1]);
                 }
