@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace WindowsFormsPlanes
 {
@@ -51,12 +52,50 @@ namespace WindowsFormsPlanes
             }
         }
 
+        /*
         private void WriteToFile(string text, FileStream stream)
         {
             byte[] info = new UTF8Encoding(true).GetBytes(text);
             stream.Write(info, 0, info.Length);
-        }
+        }*/
 
+        public bool SaveData(string filename)
+        {
+            if (File.Exists(filename))
+            {
+                File.Delete(filename);
+            }
+            using (StreamWriter streamWriter = new StreamWriter(filename, false, System.Text.Encoding.Default))
+            {
+                streamWriter.WriteLine("ParkingCollection");
+                foreach (var level in parkingStages)
+                {
+                    //Начинаем парковку
+                    streamWriter.WriteLine($"Parking{separator}{level.Key}");
+                    ITransport plane = null;
+                    for (int i = 0; (plane = level.Value.GetNext(i)) != null; i++)
+                    {
+                        if (plane != null)
+                        {
+                            //если место не пустое
+                            //Записываем тип локомотива
+                            if (plane.GetType().Name == "Plane")
+                            {
+                                streamWriter.Write($"Plane{separator}");
+                            }
+                            if (plane.GetType().Name == "Airbus")
+                            {
+                                streamWriter.Write($"Airbus{separator}");
+                            }
+                            //Записываемые параметры
+                            streamWriter.WriteLine(plane);
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+        /*
         public bool SaveData(string filename)
         {
             if (File.Exists(filename))
@@ -93,8 +132,60 @@ namespace WindowsFormsPlanes
                 }
             }
             return true;
-        }
+        }*/
+        public bool LoadData(string filename)
+        {
+            if (!File.Exists(filename))
+            {
+                return false;
+            }
+          
+            using (StreamReader streamReader = new StreamReader(filename, System.Text.Encoding.Default))
+            {
+                if (streamReader.ReadLine().Contains("ParkingCollection"))
+                {
+                    //очищаем записи
+                    parkingStages.Clear();
+                }
+                else
+                {
+                    //если нет такой записи, то это не те данные
+                    return false;
+                }
 
+                Vehicle plane = null;
+                string key = string.Empty;
+                string line;
+                while ((line = streamReader.ReadLine()) != null)
+                {
+                    if (line.Contains("Parking"))
+                    {
+                        key = line.Substring(8);
+                        parkingStages.Add(key, new Parking<Vehicle>(pictureWidth, pictureHeight));
+                        continue;
+                    }
+                    if (string.IsNullOrEmpty(line))
+                    {
+                        continue;
+                    }
+                    if (line.Contains("Plane"))
+                    {
+                        plane = new Plane(line.Substring(6));
+                    }
+                    else if (line.Contains("Airbus"))
+                    {
+                        plane = new Airbus(line.Substring(7));
+                    }
+                    var result = parkingStages[key] + plane;
+                    if (!result)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        /*
         public bool LoadData(string filename)
         {
             if (!File.Exists(filename))
@@ -155,6 +246,6 @@ namespace WindowsFormsPlanes
                 }
             }
             return true;
-        }
+        }*/
     }
 }
