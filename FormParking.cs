@@ -13,7 +13,6 @@ namespace WindowsFormsPlanes
     public partial class FormParking : Form
     {
         private readonly ParkingCollection parkingCollection;
-
         public FormParking()
         {
             InitializeComponent();
@@ -21,18 +20,17 @@ namespace WindowsFormsPlanes
 pictureBoxParking.Height);
             Draw();
         }
-
         private void ReloadLevels()
         {
             int index = listBoxParkings.SelectedIndex;
             listBoxParkings.Items.Clear();
-             for (int i = 0; i < parkingCollection.Keys.Count; i++)
-               {
-               listBoxParkings.Items.Add(parkingCollection.Keys[i]);
-             }
+            for (int i = 0; i < parkingCollection.Keys.Count; i++)
+            {
+                listBoxParkings.Items.Add(parkingCollection.Keys[i]);
+            }
 
-                if (listBoxParkings.Items.Count > 0 && (index == -1 || index >=
-           listBoxParkings.Items.Count))
+            if (listBoxParkings.Items.Count > 0 && (index == -1 || index >=
+       listBoxParkings.Items.Count))
             {
                 listBoxParkings.SelectedIndex = 0;
             }
@@ -42,7 +40,6 @@ pictureBoxParking.Height);
                 listBoxParkings.SelectedIndex = index;
             }
         }
-
         private void Draw()
         {
             if (listBoxParkings.SelectedIndex > -1)
@@ -60,8 +57,6 @@ pictureBoxParking.Height);
                 pictureBoxParking.Image = bmp;
             }
         }
-
-
         private void buttonAddParking_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxParkingName.Text))
@@ -73,7 +68,6 @@ pictureBoxParking.Height);
             parkingCollection.AddParking(textBoxParkingName.Text);
             ReloadLevels();
         }
-
         private void buttonDeleteParking_Click(object sender, EventArgs e)
         {
             if (listBoxParkings.SelectedIndex > -1)
@@ -89,14 +83,14 @@ MessageBoxIcon.Question) == DialogResult.Yes)
         }
         private void buttonParkPlane_Click(object sender, EventArgs e)
         {
-                                                                     
+
             if (listBoxParkings.SelectedIndex > -1)
             {
                 ColorDialog dialog = new ColorDialog();
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     var plane = new Plane(100, 1000, dialog.Color);
-                    if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + plane )
+                    if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + plane)
                     {
                         Draw();
                     }
@@ -119,7 +113,7 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         var plane = new Airbus(100, 1000, dialog.Color, dialogDop.Color,
                    true, true);
-                        if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + plane )
+                        if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + plane)
                         {
                             Draw();
                         }
@@ -131,7 +125,6 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                 }
             }
         }
-
         private void buttonTakePlane_Click(object sender, EventArgs e)
         {
             if (listBoxParkings.SelectedIndex > -1 && maskedTextBoxTake.Text != "")
@@ -146,12 +139,10 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                 Draw();
             }
         }
-
         private void listBoxParkings_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
         }
-
         private void buttonAddPlane_Click(object sender, EventArgs e)
         {
             if (listBoxParkings.SelectedIndex > -1)
@@ -175,7 +166,6 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                 }
             }
         }
-
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (saveFileDialogParking.ShowDialog() == DialogResult.OK)
@@ -192,8 +182,6 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                 }
             }
         }
-
-
         private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openFileDialogParking.ShowDialog() == DialogResult.OK)
@@ -212,6 +200,5 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                 }
             }
         }
-
     }
 }

@@ -7,8 +7,7 @@ using System.Drawing;
 namespace WindowsFormsPlanes
 {
     public class Airbus : Plane
-    {
-
+    { 
         public Color DopColor { private set; get; }
         public bool Star { private set; get; }
         public bool SecondLevel { private set; get; }
@@ -114,7 +113,6 @@ bool star, bool secondLevel) :
                 g.FillPolygon(brLightPurple, curvePoints10);
             }
         }
-
         public override string ToString()
         {
             return

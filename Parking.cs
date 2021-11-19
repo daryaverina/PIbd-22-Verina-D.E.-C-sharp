@@ -44,7 +44,6 @@ namespace WindowsFormsPlanes
             p._places.Add(car);
             return true;
         }
-
         public static T operator -(Parking<T> p, int index)
         {
             if (index >= p._places.Count) return null;
