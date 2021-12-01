@@ -35,14 +35,14 @@ namespace WindowsFormsPlanes
 
         }
 
-        public static bool operator +(Parking<T> p, T car)
+        public static int operator +(Parking<T> p, T plane)
         {
-            if (p._places.Count >= p._maxCount)
+            if (p._places.Count < p._maxCount)
             {
-                return false;
+                p._places.Add(plane);
+                return 1;
             }
-            p._places.Add(car);
-            return true;
+            return -1;
         }
         public static T operator -(Parking<T> p, int index)
         {
