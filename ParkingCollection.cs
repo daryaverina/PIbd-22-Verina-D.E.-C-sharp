@@ -131,7 +131,7 @@ namespace WindowsFormsPlanes
                         plane = new Airbus(line.Substring(7));
                     }
                     var result = parkingStages[key] + plane;
-                    if (!result)
+                    if (result==-1)
                     {
                         return false;
                     }
