@@ -105,7 +105,6 @@ namespace WindowsFormsPlanes
                 else
                 {
                     //если нет такой записи, то это не те данные
-                    //throw new System.NullReferenceException("Выбранный файл не соответствует требованиям к загрузочному файлу: ");
                     throw new FormatException("Неверный формат файла");
                 }
 
@@ -135,7 +134,8 @@ namespace WindowsFormsPlanes
                     var result = parkingStages[key] + plane;
                     if (result==-1)
                     {
-                        throw new Exception("Не удалось загрузить автомобиль на парковку");
+                        //throw new Exception("Не удалось загрузить автомобиль на парковку");
+                        throw new TypeLoadException("Не удалось загрузить автомобиль на парковку");
                     }
                 }
               //  return true;
