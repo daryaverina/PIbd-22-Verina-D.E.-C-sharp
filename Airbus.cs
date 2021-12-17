@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using System.Drawing;
 namespace WindowsFormsPlanes
 {
-    public class Airbus : Plane
-    { 
+    public class Airbus : Plane, IEquatable<Airbus>
+    {
         public Color DopColor { private set; get; }
         public bool Star { private set; get; }
         public bool SecondLevel { private set; get; }
@@ -117,6 +117,43 @@ bool star, bool secondLevel) :
         {
             return
            $"{base.ToString()}{separator}{DopColor.Name}{separator}{Star}{separator}{SecondLevel}";
+        }
+        public bool Equals(Airbus other)
+        {
+            if (other == null)
+                return false;
+            if (GetType().Name != other.GetType().Name)
+                return false;
+            if (MaxSpeed != other.MaxSpeed)
+                return false;
+            if (Weight != other.Weight)
+                return false;
+            if (MainColor != other.MainColor)
+                return false;
+            if (DopColor != other.DopColor)
+                return false;
+            if (Star != other.Star)
+                return false;
+            if (SecondLevel != other.SecondLevel)
+                return false;
+
+            return true;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Airbus carObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(carObj);
+            }
         }
     }
 }

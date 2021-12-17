@@ -69,10 +69,10 @@ namespace WindowsFormsPlanes
             switch (e.Data.GetData(DataFormats.Text).ToString())
             {
                 case "Обычный самолет":
-                    plane = new Plane(Convert.ToInt32(numericUpDown_Speed.Value), Convert.ToInt32(numericUpDown_Weight.Value), Color.White);
+                    plane = new Plane((int)numericUpDown_Speed.Value, (int)numericUpDown_Weight.Value, Color.White);
                     break;
                 case "Аэробус":
-                    plane = new Airbus(Convert.ToInt32(numericUpDown_Speed.Value), Convert.ToInt32(numericUpDown_Weight.Value),
+                    plane = new Airbus((int)numericUpDown_Speed.Value, (int)numericUpDown_Weight.Value,
                           Color.White, Color.White, CheckBox_Star.Checked, checkBox_SecLevel.Checked);
                     break;
             }
@@ -133,15 +133,15 @@ namespace WindowsFormsPlanes
                 bool star = (plane as Airbus).Star;
                 if (!checkBox_SecLevel.Checked)
                 {
-                    plane = new Airbus(Convert.ToInt32(numericUpDown_Speed.Value),
-                        Convert.ToInt32(numericUpDown_Weight.Value),
+                    plane = new Airbus((int)numericUpDown_Speed.Value,
+                       (int)numericUpDown_Weight.Value,
                         mainColor, dopColor, star, false);
                 }
                 else
                 {
 
-                    plane = new Airbus(Convert.ToInt32(numericUpDown_Speed.Value),
-                      Convert.ToInt32(numericUpDown_Weight.Value),
+                    plane = new Airbus((int)numericUpDown_Speed.Value,
+                      (int)numericUpDown_Weight.Value,
                       mainColor, dopColor, star, true);
                 }
                 DrawPlane();
@@ -157,15 +157,15 @@ namespace WindowsFormsPlanes
                 bool seclevel = (plane as Airbus).SecondLevel;
                 if (!CheckBox_Star.Checked)
                 {
-                    plane = new Airbus(Convert.ToInt32(numericUpDown_Speed.Value),
-                        Convert.ToInt32(numericUpDown_Weight.Value),
+                    plane = new Airbus((int)numericUpDown_Speed.Value,
+                        (int)numericUpDown_Weight.Value,
                         mainColor, dopColor, false, seclevel);
                 }
                 else
                 {
 
-                    plane = new Airbus(Convert.ToInt32(numericUpDown_Speed.Value),
-                      Convert.ToInt32(numericUpDown_Weight.Value),
+                    plane = new Airbus((int)numericUpDown_Speed.Value,
+                      (int)numericUpDown_Weight.Value,
                       mainColor, dopColor, true, seclevel);
                 }
                 DrawPlane();

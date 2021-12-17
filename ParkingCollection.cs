@@ -29,7 +29,11 @@ namespace WindowsFormsPlanes
         /// Добавление парковки
         public void AddParking(string name)
         {
-            if (!parkingStages.ContainsKey(name)) parkingStages.Add(name, new Parking<Vehicle>(pictureWidth, pictureHeight));
+            if (parkingStages.ContainsKey(name))
+            {
+                return;
+            }
+            parkingStages.Add(name, new Parking<Vehicle>(pictureWidth, pictureHeight));
         }
         /// Удаление парковки
         public void DelParking(string name)
@@ -141,5 +145,6 @@ namespace WindowsFormsPlanes
               //  return true;
             }
         }
+       
     }
 }
