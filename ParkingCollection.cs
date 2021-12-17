@@ -86,7 +86,6 @@ namespace WindowsFormsPlanes
                     }
                 }
             }
-            //return true;
         }
         public void LoadData(string filename)
         {
@@ -138,7 +137,6 @@ namespace WindowsFormsPlanes
                         throw new TypeLoadException("Не удалось загрузить автомобиль на парковку");
                     }
                 }
-              //  return true;
             }
         }
     }
