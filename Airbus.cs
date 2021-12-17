@@ -16,14 +16,12 @@ namespace WindowsFormsPlanes
             DopColor = color;
         }
         public Airbus(int maxSpeed, float weight, Color mainColor, Color dopColor,
-bool star, bool secondLevel) :
- base(maxSpeed, weight, mainColor, 300, 115)
+bool star, bool secondLevel) : base(maxSpeed, weight, mainColor, 300, 115)
         {
             DopColor = dopColor;
             Star = star;
             SecondLevel = secondLevel;
         }
-
         public Airbus(string info) : base(info)
         {
             string[] strs = info.Split(separator);

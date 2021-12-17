@@ -44,7 +44,6 @@ namespace WindowsFormsPlanes
                 if (!parkingStages.ContainsKey(ind))
                     parkingStages[ind] = value;
             }
-
             get
             {
                 if (!parkingStages.ContainsKey(ind)) return null;
@@ -93,7 +92,6 @@ namespace WindowsFormsPlanes
             {
                 return false;
             }
-
             using (StreamReader streamReader = new StreamReader(filename, System.Text.Encoding.Default))
             {
                 if (streamReader.ReadLine().Contains("ParkingCollection"))

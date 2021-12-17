@@ -11,9 +11,7 @@ namespace WindowsFormsPlanes
     {
         protected readonly int planeWidth = 300;
         protected readonly int planeHeight = 115;
-
         protected readonly char separator = ';';
-
 
         public Plane(int maxSpeed, float weight, Color mainColor)
         {
@@ -162,6 +160,5 @@ planeHeight)
         {
             return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
         }
-
     }
 }

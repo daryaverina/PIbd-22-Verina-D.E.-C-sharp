@@ -32,7 +32,6 @@ namespace WindowsFormsPlanes
             pictureWidth = picWidth;
             pictureHeight = picHeight;
             _places = new List<T>();
-
         }
 
         public static int operator +(Parking<T> p, T plane)
