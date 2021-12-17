@@ -11,12 +11,24 @@ namespace WindowsFormsPlanes
     {
         protected readonly int planeWidth = 300;
         protected readonly int planeHeight = 115;
+        protected readonly char separator = ';';
 
         public Plane(int maxSpeed, float weight, Color mainColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
+        }
+
+        public Plane(string info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
         }
 
         protected Plane(int maxSpeed, float weight, Color mainColor, int planeWidth, int
@@ -142,6 +154,11 @@ planeHeight)
             PointF point15 = new PointF(_startPosX + 60, _startPosY + 25);
             PointF[] curvePoints4 = { point12, point13, point14, point15 };
             g.FillPolygon(brBlack, curvePoints4);
+        }
+
+        public override string ToString()
+        {
+            return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
         }
     }
 }

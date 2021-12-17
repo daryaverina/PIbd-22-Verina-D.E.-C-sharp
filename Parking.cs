@@ -32,7 +32,6 @@ namespace WindowsFormsPlanes
             pictureWidth = picWidth;
             pictureHeight = picHeight;
             _places = new List<T>();
-
         }
 
         public static int operator +(Parking<T> p, T plane)
@@ -44,7 +43,6 @@ namespace WindowsFormsPlanes
             }
             return -1;
         }
-
         public static T operator -(Parking<T> p, int index)
         {
             if (index >= p._places.Count) return null;
@@ -82,6 +80,15 @@ namespace WindowsFormsPlanes
                 g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth,
                (pictureHeight / _placeSizeHeight) * _placeSizeHeight);
             }
+        }
+
+        public T GetNext(int index)
+        {
+            if (index < 0 || index >= _places.Count)
+            {
+                return null;
+            }
+            return _places[index];
         }
     }
 }

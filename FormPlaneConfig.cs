@@ -171,6 +171,5 @@ namespace WindowsFormsPlanes
                 DrawPlane();
             }
         }
-
     }
 }
