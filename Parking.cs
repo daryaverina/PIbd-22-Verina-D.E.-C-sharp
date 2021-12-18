@@ -40,7 +40,6 @@ namespace WindowsFormsPlanes
             if (p._places.Count >= p._maxCount)
             {
                 throw new AerodromeOverflowException();
-               // return -1;
             }
             p._places.Add(plane);
             return 1;
