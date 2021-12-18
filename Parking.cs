@@ -36,26 +36,22 @@ namespace WindowsFormsPlanes
 
         public static int operator +(Parking<T> p, T plane)
         {
-            if (p._places.Count < p._maxCount)
+            if (p._places.Count >= p._maxCount)
             {
-                p._places.Add(plane);
-                return 1;
+                throw new AerodromeOverflowException();
             }
-            return -1;
+            p._places.Add(plane);
+            return 1;
         }
         public static T operator -(Parking<T> p, int index)
         {
-            if (index >= p._places.Count) return null;
-            else
+            if (index < -1 || index > p._places.Count)
             {
-                if (p._places[index] == null) return null;
-                else
-                {
-                    T temp = p._places[index];
-                    p._places.RemoveAt(index);
-                    return temp;
-                }
+                throw new AerodromeNotFoundException(index);
             }
+            T plane = p._places[index];
+            p._places.RemoveAt(index);
+            return plane;
         }
         public void Draw(Graphics g)
         {

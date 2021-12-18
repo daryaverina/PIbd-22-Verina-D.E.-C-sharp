@@ -50,7 +50,8 @@ namespace WindowsFormsPlanes
                 return parkingStages[ind];
             }
         }
-        public bool SaveData(string filename)
+
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
@@ -84,13 +85,12 @@ namespace WindowsFormsPlanes
                     }
                 }
             }
-            return true;
         }
-        public bool LoadData(string filename)
+        public void LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
             using (StreamReader streamReader = new StreamReader(filename, System.Text.Encoding.Default))
             {
@@ -102,7 +102,7 @@ namespace WindowsFormsPlanes
                 else
                 {
                     //если нет такой записи, то это не те данные
-                    return false;
+                    throw new FormatException("Неверный формат файла");
                 }
 
                 Vehicle plane = null;
@@ -131,10 +131,9 @@ namespace WindowsFormsPlanes
                     var result = parkingStages[key] + plane;
                     if (result==-1)
                     {
-                        return false;
+                        throw new TypeLoadException("Не удалось загрузить самолет на парковку");
                     }
                 }
-                return true;
             }
         }
     }
