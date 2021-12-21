@@ -53,7 +53,6 @@ namespace WindowsFormsPlanes
                 eventAddPlane += ev;
             }
         }
-
         private void LabelPlane_MouseDwon(object sender, MouseEventArgs e)
         {
             labelPlane.DoDragDrop(labelPlane.Text, DragDropEffects.Move | DragDropEffects.Copy);
@@ -63,7 +62,6 @@ namespace WindowsFormsPlanes
         {
             labelAirbus.DoDragDrop(labelAirbus.Text, DragDropEffects.Move | DragDropEffects.Copy);
         }
-
         private void panelPlane_DragDrop(object sender, DragEventArgs e)
         {
             switch (e.Data.GetData(DataFormats.Text).ToString())
@@ -135,6 +133,14 @@ namespace WindowsFormsPlanes
                 {
                     plane = new Airbus((int)numericUpDown_Speed.Value,
                        (int)numericUpDown_Weight.Value,
+3 conflicting files
+FormPlaneConfig.cs
+FormPlaneConfig.cs
+Parking.cs
+Parking.cs
+Plane.cs
+Plane.cs
+FormPlaneConfig.cs
                         mainColor, dopColor, star, false);
                 }
                 else
@@ -166,6 +172,8 @@ namespace WindowsFormsPlanes
 
                     plane = new Airbus((int)numericUpDown_Speed.Value,
                       (int)numericUpDown_Weight.Value,
+                    plane = new Airbus(Convert.ToInt32(numericUpDown_Speed.Value),
+                      Convert.ToInt32(numericUpDown_Weight.Value),
                       mainColor, dopColor, true, seclevel);
                 }
                 DrawPlane();

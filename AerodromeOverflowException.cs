@@ -8,7 +8,7 @@ namespace WindowsFormsPlanes
 {
     class AerodromeOverflowException : Exception
     {
-        public AerodromeOverflowException() : base("На парковке нет свободных мест")
+        public AerodromeOverflowException() : base("На аэродроме нет свободных мест")
         {
 
         }

@@ -48,7 +48,6 @@ namespace WindowsFormsPlanes
                 if (!parkingStages.ContainsKey(ind))
                     parkingStages[ind] = value;
             }
-
             get
             {
                 if (!parkingStages.ContainsKey(ind)) return null;
@@ -137,8 +136,7 @@ namespace WindowsFormsPlanes
                     var result = parkingStages[key] + plane;
                     if (result==-1)
                     {
-                        //throw new Exception("Не удалось загрузить автомобиль на парковку");
-                        throw new TypeLoadException("Не удалось загрузить автомобиль на парковку");
+                        throw new TypeLoadException("Не удалось загрузить самолет на парковку");
                     }
                 }
             }

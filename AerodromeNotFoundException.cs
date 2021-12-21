@@ -8,7 +8,7 @@ namespace WindowsFormsPlanes
 {
     public class AerodromeNotFoundException : Exception
     {
-        public AerodromeNotFoundException(int i) : base("Не найден автомобиль по месту " + i)
+        public AerodromeNotFoundException(int i) : base("Не найден самолет по месту " + i)
         {
         }
     }
