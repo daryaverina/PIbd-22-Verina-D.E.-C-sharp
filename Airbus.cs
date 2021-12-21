@@ -136,7 +136,6 @@ bool star, bool secondLevel) :
                 return false;
             if (SecondLevel != other.SecondLevel)
                 return false;
-
             return true;
         }
 
