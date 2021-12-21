@@ -57,7 +57,6 @@
     <Compile Include="AerodromeNotFoundException.cs" />
     <Compile Include="AerodromeOverflowException.cs" />
     <Compile Include="Airbus.cs" />
-    <Compile Include="comp.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="FormParking.cs">
       <SubType>Form</SubType>

@@ -11,7 +11,7 @@ namespace WindowsFormsPlanes
     public class Parking<T> : IEnumerator<T>, IEnumerable<T>
         where T : class, ITransport
     {
-        private readonly List<T> _places;
+        public readonly List<T> _places;
 
         /// Максимальное количество мест на парковке
         private readonly int _maxCount;
@@ -39,7 +39,6 @@ namespace WindowsFormsPlanes
             pictureHeight = picHeight;
             _places = new List<T>();
             _currentIndex = -1;
-
         }
 
         public static int operator +(Parking<T> p, T plane)
@@ -114,7 +113,6 @@ namespace WindowsFormsPlanes
             }
             _currentIndex = -1;
             return false;
-            // Реализовать логику
         }
         public void Reset()
         {
@@ -128,8 +126,5 @@ namespace WindowsFormsPlanes
         {
             return this;
         }
-
-       
-
     }
 }

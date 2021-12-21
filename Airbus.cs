@@ -146,13 +146,13 @@ bool star, bool secondLevel) :
             {
                 return false;
             }
-            if (!(obj is Airbus carObj))
+            if (!(obj is Airbus planeObj))
             {
                 return false;
             }
             else
             {
-                return Equals(carObj);
+                return Equals(planeObj);
             }
         }
     }
