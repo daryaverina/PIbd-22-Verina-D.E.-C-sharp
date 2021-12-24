@@ -138,7 +138,7 @@ namespace WindowsFormsPlanes
                     if (result==-1)
                     {
                         //throw new Exception("Не удалось загрузить автомобиль на парковку");
-                        throw new TypeLoadException("Не удалось загрузить автомобиль на парковку");
+                        throw new TypeLoadException("Не удалось загрузить самолет на парковку");
                     }
                 }
             }
