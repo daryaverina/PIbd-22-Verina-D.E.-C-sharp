@@ -7,11 +7,13 @@ using System.Drawing;
 
 namespace WindowsFormsPlanes
 {
-    public class Plane : Vehicle
+    public class Plane : Vehicle, IEquatable<Plane>
     {
         protected readonly int planeWidth = 300;
         protected readonly int planeHeight = 115;
+
         protected readonly char separator = ';';
+
 
         public Plane(int maxSpeed, float weight, Color mainColor)
         {
@@ -159,6 +161,47 @@ planeHeight)
         public override string ToString()
         {
             return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
+        }
+
+        public bool Equals(Plane other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Plane carObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(carObj);
+            }
         }
     }
 }

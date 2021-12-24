@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,9 +8,10 @@ using System.Drawing;
 
 namespace WindowsFormsPlanes
 {
-    public class Parking<T> where T : class, ITransport
+    public class Parking<T> : IEnumerator<T>, IEnumerable<T>
+        where T : class, ITransport
     {
-        private readonly List<T> _places;
+        public readonly List<T> _places;
 
         /// Максимальное количество мест на парковке
         private readonly int _maxCount;
@@ -24,6 +26,10 @@ namespace WindowsFormsPlanes
         /// Размер парковочного места (высота)
         private readonly int _placeSizeHeight = 120;
 
+        private int _currentIndex;
+        public T Current => _places[_currentIndex];
+        object IEnumerator.Current => _places[_currentIndex];
+
         public Parking(int picWidth, int picHeight)
         {
             int width = picWidth / _placeSizeWidth;
@@ -32,7 +38,7 @@ namespace WindowsFormsPlanes
             pictureWidth = picWidth;
             pictureHeight = picHeight;
             _places = new List<T>();
-
+            _currentIndex = -1;
         }
 
         public static int operator +(Parking<T> p, T plane)
@@ -41,8 +47,12 @@ namespace WindowsFormsPlanes
             {
                 throw new AerodromeOverflowException();
             }
+            if (p._places.Contains(plane))
+            {
+                throw new ParkingAlreadyHaveException();
+            }
             p._places.Add(plane);
-            return 1;
+            return p._places.Count - 1;
         }
         public static T operator -(Parking<T> p, int index)
         {
@@ -81,11 +91,40 @@ namespace WindowsFormsPlanes
 
         public T GetNext(int index)
         {
-            if (index < 0 || index >= _places.Count)
+            if (index <0 || index >= _places.Count)
             {
                 return null;
             }
             return _places[index];
+        }
+
+        public void Sort() => _places.Sort((IComparer<T>)new PlaneComparer());
+
+        public void Dispose()
+        {
+        }
+
+        public bool MoveNext()
+        {
+            if (_currentIndex < _places.Count - 1)
+            {
+                _currentIndex++;
+                return true;
+            }
+            _currentIndex = -1;
+            return false;
+        }
+        public void Reset()
+        {
+            _currentIndex = -1;
+        }
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this;
+        }
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this;
         }
     }
 }
