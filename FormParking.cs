@@ -29,7 +29,6 @@ namespace WindowsFormsPlanes
             parkingCollection = new ParkingCollection(pictureBoxParking.Width,
 pictureBoxParking.Height);
             logger = LogManager.GetCurrentClassLogger();
-          //  Draw();
         }
         private void ReloadLevels()
         {
@@ -67,7 +66,6 @@ pictureBoxParking.Height);
         {
             if (string.IsNullOrEmpty(textBoxParkingName.Text))
             {
-             //   logger.Warn($"Не ввели название аэродрома");
                 MessageBox.Show("Введите название аэродрома", "Ошибка",
                MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -108,7 +106,6 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                 }
                 catch (AerodromeNotFoundException ex)
                 {
-                    // logger.Warn($"Введен индекс вне доступного интервала: { maskedTextBoxTake.Text}");
                     logger.Warn("Попытка забрать транспорт с незанятого места");
                     MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -201,12 +198,6 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                     ReloadLevels();
                     Draw();
                 }
-                /*
-                catch (AerodromeOccupiedPlaceException ex)
-                {
-                    MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                }*/
                 catch (FileNotFoundException ex)
                 {
                     logger.Warn("Ошибка загрузки: файл не найден");
