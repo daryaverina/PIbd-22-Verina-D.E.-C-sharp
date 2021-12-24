@@ -29,7 +29,11 @@ namespace WindowsFormsPlanes
         /// Добавление парковки
         public void AddParking(string name)
         {
-            if (!parkingStages.ContainsKey(name)) parkingStages.Add(name, new Parking<Vehicle>(pictureWidth, pictureHeight));
+            if (parkingStages.ContainsKey(name))
+            {
+                return;
+            }
+            parkingStages.Add(name, new Parking<Vehicle>(pictureWidth, pictureHeight));
         }
         /// Удаление парковки
         public void DelParking(string name)
@@ -44,6 +48,7 @@ namespace WindowsFormsPlanes
                 if (!parkingStages.ContainsKey(ind))
                     parkingStages[ind] = value;
             }
+
             get
             {
                 if (!parkingStages.ContainsKey(ind)) return null;
@@ -132,6 +137,7 @@ namespace WindowsFormsPlanes
                     var result = parkingStages[key] + plane;
                     if (result==-1)
                     {
+                        //throw new Exception("Не удалось загрузить автомобиль на парковку");
                         throw new TypeLoadException("Не удалось загрузить самолет на парковку");
                     }
                 }

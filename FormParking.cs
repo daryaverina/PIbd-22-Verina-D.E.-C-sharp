@@ -180,6 +180,7 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                     logger.Warn("Ошибка сохранения: файл не найден");
                     MessageBox.Show(ex.Message, "Файл не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
             }
         }
         private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -189,7 +190,9 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                 try
                 {
                     parkingCollection.LoadData(openFileDialogParking.FileName);
+
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
+
                     MessageBoxIcon.Information);
                     logger.Info("Загружено из файла " + openFileDialogParking.FileName);
                     ReloadLevels();
@@ -200,6 +203,17 @@ MessageBoxIcon.Question) == DialogResult.Yes)
                     logger.Warn("Ошибка загрузки: файл не найден");
                     MessageBox.Show(ex.Message, "Файл не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+            }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            if (listBoxParkings.SelectedIndex > -1)
+            {
+                parkingCollection[listBoxParkings.SelectedItem.ToString()].Sort();
+                Draw();
+                logger.Info("Сортировка уровней");
             }
         }
     }

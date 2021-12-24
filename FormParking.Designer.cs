@@ -45,6 +45,7 @@
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialogParking = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogParking = new System.Windows.Forms.OpenFileDialog();
+            this.buttonSort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.BoxDelete.SuspendLayout();
             this.menuStripParking.SuspendLayout();
@@ -147,7 +148,7 @@
             // 
             // buttonAddPlane
             // 
-            this.buttonAddPlane.Location = new System.Drawing.Point(682, 262);
+            this.buttonAddPlane.Location = new System.Drawing.Point(682, 300);
             this.buttonAddPlane.Name = "buttonAddPlane";
             this.buttonAddPlane.Size = new System.Drawing.Size(117, 45);
             this.buttonAddPlane.TabIndex = 10;
@@ -196,11 +197,22 @@
             // 
             this.openFileDialogParking.Filter = "*.txt)|*.txt";
             // 
+            // buttonSort
+            // 
+            this.buttonSort.Location = new System.Drawing.Point(682, 251);
+            this.buttonSort.Name = "buttonSort";
+            this.buttonSort.Size = new System.Drawing.Size(118, 23);
+            this.buttonSort.TabIndex = 12;
+            this.buttonSort.Text = "Сортировать";
+            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
+            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonSort);
             this.Controls.Add(this.buttonAddPlane);
             this.Controls.Add(this.textBoxParkingName);
             this.Controls.Add(this.buttonDeleteParking);
@@ -242,5 +254,6 @@
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialogParking;
         private System.Windows.Forms.OpenFileDialog openFileDialogParking;
+        private System.Windows.Forms.Button buttonSort;
     }
 }
